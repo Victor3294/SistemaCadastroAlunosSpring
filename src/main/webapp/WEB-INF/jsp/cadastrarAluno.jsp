@@ -9,7 +9,7 @@
 <%
 	String usuario = (String) session.getAttribute("usuario");
 	if (usuario == null) {
-		response.sendRedirect("index.jsp?error=2");
+		response.sendRedirect("/erroLogin?error=2");
 	}
 %>
 
@@ -22,7 +22,7 @@
 	
 	
 	
-    <form action="ConfirmarCadastroServlet" method="post">
+    <form action="/confirmarCadastro" method="post">
     
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" ><br><br>
@@ -43,7 +43,7 @@
         <label for="generoF">Feminino</label><br><br>
         
         <input type="submit" value="Confirmar Cadastro">
-        <a href="listarAlunos.jsp">Voltar</a>
+        <a href="/listarAlunos">Voltar</a>
     </form>
 
 

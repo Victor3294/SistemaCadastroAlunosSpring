@@ -9,13 +9,13 @@
 <%
 	String usuario = (String) session.getAttribute("usuario");
 	if (usuario == null) {
-		response.sendRedirect("index.jsp?error=2");
+		response.sendRedirect("/erroLogin?error=2");
 	}
 %>
 
 	
 <br><br>
-Clique <a href="cadastrarAluno.jsp">aqui</a> para cadastar um novo aluno
+Clique <a href="/cadastrarAluno">aqui</a> para cadastar um novo aluno
 
 <% @SuppressWarnings("unchecked")
 List<Aluno> listaAlunos = (List<Aluno>) request.getAttribute("listaAlunos"); %>
@@ -50,13 +50,13 @@ List<Aluno> listaAlunos = (List<Aluno>) request.getAttribute("listaAlunos"); %>
 	<%  if (listaAlunos != null) {
 			for (Aluno aluno : listaAlunos) { %>
 		<tr>	
-			<td> <a href="DetalharServlet?id=<%= aluno.getId() %>"> Detalhar</a></td>
+			<td> <a href="/detalharAluno?id=<%= aluno.getId() %>"> Detalhar</a></td>
 			<td> <%= aluno.getMatricula() %>   </td>
 			<td> <%= aluno.getNome() %>   </td>
 			<td> <%= aluno.getIdade()  %>   </td>
 			<td> <%= aluno.getGenero() %>   </td>
 			<td> <%= aluno.getSemestre() %>   </td>
-			<td> <a href="ExcluirServlet?id=<%= aluno.getId() %>">Excluir</a></td>
+			<td> <a href="/excluirAluno?id=<%= aluno.getId() %>">Excluir</a></td>
 		</tr>
 		<% } }%>
 	

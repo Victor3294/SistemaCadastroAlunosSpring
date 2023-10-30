@@ -10,7 +10,8 @@
 <%
 	String usuario = (String) session.getAttribute("usuario");
 	if (usuario == null) {
-		response.sendRedirect("index.jsp?error=2");	}
+		response.sendRedirect("/erroLogin?error=2");	
+		}
 %>
 
 
@@ -19,7 +20,7 @@
 
 <%  Aluno aluno = (Aluno) request.getAttribute("aluno"); %>
 
-<form action="ConfirmarAlteracaoServlet" method="post">
+<form action="/confirmarAlteracao" method="post">
 
 		
 		<input type="hidden" name="id"  value="<%= aluno.getId()%>" >
@@ -49,7 +50,7 @@
 		<br><br>
 				
 		<input type="submit" value="Confirmar Alteração">        
-		<input type="button"  onclick="javascript:location.href='listarAlunos.jsp'"  value="Voltar">
+		<input type="button"  onclick="javascript:location.href='/listarAlunos'"  value="Voltar">
 
 </form> 
 </body>

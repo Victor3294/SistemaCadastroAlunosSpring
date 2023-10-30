@@ -64,7 +64,7 @@ public class AlunoJDBCdao {
 
 			
 	public int cadastrarAluno(Aluno aluno) {
-		String insert = "INSERT INTO alunos (Nome, Idade, Semestre, Genero, Matricula) VALUES (?, ?, ?, ?, ?)";
+		String insert = "INSERT INTO alunos (nome, idade, semestre, genero, matricula) VALUES (?, ?, ?, ?, ?)";
 		try {
 			Connection con = getConexao();
 			PreparedStatement pst = con.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
@@ -151,7 +151,7 @@ public class AlunoJDBCdao {
 	
 	
 	public void alterarAluno(Aluno aluno) {
-		String update = "UPDATE alunos SET Nome = ?, Idade = ?, Semestre = ?, Genero = ? WHERE Id = ?";
+		String update = "UPDATE alunos SET nome = ?, idade = ?, semestre = ?, genero = ? WHERE Id = ?";
 		try {
 			Connection con = getConexao();
 			PreparedStatement pst = con.prepareStatement(update);
